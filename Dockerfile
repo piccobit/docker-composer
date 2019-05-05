@@ -5,8 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 COPY install-composer.sh /usr/local/bin
 
-RUN install-composer.sh
-
-RUN apt update
-
-RUN apt install -y --no-install-recommends git
+RUN install-composer.sh && \
+    mv composer.phar /usr/local/bin/composer && \
+    apt update && \
+    apt install -y --no-install-recommends git
