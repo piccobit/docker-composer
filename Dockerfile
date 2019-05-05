@@ -1,13 +1,12 @@
 FROM php:7.3.5-apache-stretch
 
-COPY install-composer.sh /usr/bin
+ENV LC_ALL=C
+ENV DEBIAN_FRONTEND=noninteractive
+
+COPY install-composer.sh /usr/local/bin
 
 RUN install-composer.sh
 
-RUN git clone -b master https://github.com/getgrav/grav.git /var/www/html
+RUN apt update
 
-WORKDIR /var/www/html/grav
-
-RUN composer install --no-dev -o
-
-RUN bin/grav install
+RUN apt install -y --no-install-recommends git
