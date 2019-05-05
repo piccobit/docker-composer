@@ -10,6 +10,7 @@ RUN install-composer.sh && \
     apt update && \
     apt install -y --no-install-recommends \
         git \
+        unzip \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libpng-dev \
