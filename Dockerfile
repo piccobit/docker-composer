@@ -20,5 +20,5 @@ RUN install-composer.sh && \
     docker-php-ext-install -j$(nproc) gd && \
     docker-php-ext-configure zip && \
     docker-php-ext-install -j$(nproc) zip && \
-    pecl install apcu_bc && \
+    pecl install APCu && \
     a2enmod rewrite
